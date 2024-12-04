@@ -1,71 +1,62 @@
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdbool.h>
-
-bool isVariable(char a[]) {
-    if (!isalpha(a[0]) && a[0] != '_') {
-        return false;
+#include<stdio.h>
+#include<stdbool.h>
+#include<ctype.h>
+#include<string.h>
+int main(){
+    int i,j,n;
+    char a[50];
+    printf("Enter a string: ");
+    scanf("%s",a);
+    int l=strlen(a);
+    bool isvar=true;
+    bool isarray=true;
+    bool isfun=true;
+    
+    if(isalpha(a[0]) || a[0]=='_'){
+        isvar=true;
     }
-    for (int i = 1; i < strlen(a); i++) {
-        if (!(isalnum(a[i]) || a[i] == '_')) {
-            return false;
+    else{
+        isvar=false;
+    }
+
+    for(i=1;i<l;i++){
+        if(isalpha(a[i]) || isdigit(a[i]) || a[i]=='_'){
+            isvar=true;
         }
     }
-    return true;
-}
 
-bool isArray(char a[]) {
-    int len = strlen(a);
-    if (len < 3 || a[len - 1] != ']' || a[len - 2] != '[') {
-        return false;
+    if(a[l-3]=='[' && a[l-1]==']' && isdigit(a[l-2])){
+        isarray=true;
+        isvar=false;
     }
-    if (!isdigit(a[len - 3])) {
-        return false;
-    }
-    for (int i = 0; i < len - 3; i++) {
-        if (!(isalnum(a[i]) || a[i] == '_')) {
-            return false;
-        }
-    }
-    return true;
-}
-
-bool isFunction(char a[]) {
-    int len = strlen(a);
-    if (len < 3 || a[len - 1] != ')' || a[len - 2] != '(') {
-        return false;
-    }
-    for (int i = 0; i < len - 2; i++) {
-        if (!(isalnum(a[i]) || a[i] == '_')) {
-            return false;
-        }
-    }
-    return true;
-}
-
-int main() {
-    char a[20];
-    printf("Enter a string:\n");
-    scanf("%s", a);
-
-    if (isVariable(a)) {
-        printf("The given string is a variable\n");
-    } else {
-        printf("The given string is not a variable\n");
+    else{
+        isarray=false;
     }
 
-    if (isArray(a)) {
-        printf("The given string is an array\n");
-    } else {
-        printf("The given string is not an array\n");
+    if(a[l-1]==')' && a[l-2]=='('){
+        isfun=true;
+        isvar=false;
+    }
+    else{
+        isfun=false;
     }
 
-    if (isFunction(a)) {
-        printf("The given string is a function\n");
-    } else {
-        printf("The given string is not a function\n");
+    if(isvar==true){
+        printf("String is a variable\n");
     }
-
-    return 0;
+    else{
+        printf("STring is not a variable\n");
+    }
+    if(isarray==true){
+        printf("String is a array\n");
+    }
+    else{
+        printf("String is not a array\n");
+    }
+    if(isfun==true){
+        printf("String is a function\n");
+    }
+    else{
+        printf("String is not a function\n");
+    }
 }
