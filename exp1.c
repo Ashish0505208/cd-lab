@@ -29,6 +29,11 @@ int main(){
         isarray=true;
         isvar=false;
     }
+    else if(a[l-1]=='[' || isdigit(a[l-1])){
+        isarray=false;
+        isvar=false;
+        isfun=false;
+    }
     else{
         isarray=false;
     }
@@ -37,11 +42,19 @@ int main(){
         isfun=true;
         isvar=false;
     }
+    else if(a[l-1]=='('){
+        isfun=false;
+        isvar=false;
+        isarray=false;
+    }
     else{
         isfun=false;
     }
-
-    if(isvar==true){
+    if(isvar==false && isarray==false && isfun==false){
+        printf("Invalid");
+    }
+    else{
+if(isvar==true){
         printf("String is a variable\n");
     }
     else{
@@ -59,4 +72,7 @@ int main(){
     else{
         printf("String is not a function\n");
     }
+    }
+    
+    
 }
