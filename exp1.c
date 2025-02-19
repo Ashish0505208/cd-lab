@@ -1,3 +1,5 @@
+//To check if given input is variable, array or a function
+
 #include<stdio.h>
 #include<stdbool.h>
 #include<ctype.h>

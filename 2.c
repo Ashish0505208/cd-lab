@@ -1,3 +1,5 @@
+//C code to check if given input is int or float
+
 #include<stdio.h>
 #include<stdbool.h>
 #include<string.h>

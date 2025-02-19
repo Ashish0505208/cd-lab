@@ -1,3 +1,5 @@
+//Count of chars,words,lines,blanks in given input
+
 #include<stdio.h>
 #include<stdbool.h>
 #include<ctype.h>

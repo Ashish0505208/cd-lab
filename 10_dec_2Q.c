@@ -1,3 +1,5 @@
+// displaying start symbol, terminals and non terminals in given CFG grammer
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
