@@ -9,7 +9,7 @@ int isNonTerminal(char c) {
 
 // Function to check if a character is a terminal
 int isTerminal(char c) {
-    return islower(c) || isdigit(c) || strchr("+-*/= ", c) != NULL;
+    return islower(c) || strchr("+-*/= ", c) != NULL;
 }
 
 // Function to check if the grammar is Context-Free Grammar (CFG)
@@ -57,13 +57,13 @@ int main() {
     int n;
     printf("Enter the number of production rules: ");
     scanf("%d", &n);
-    getchar(); // Consume the newline character
-
+    getchar();
+    
     char grammar[n][100];
     printf("Enter the grammar (in the form A->B | C, one production per line):\n");
     for (int i = 0; i < n; i++) {
-        fgets(grammar[i], 100, stdin);
-        grammar[i][strcspn(grammar[i], "\n")] = '\0'; // Remove trailing newline
+        scanf("%[^\n]",grammar[i]);
+        getchar();
     }
 
     if (isCFG(grammar, n)) {

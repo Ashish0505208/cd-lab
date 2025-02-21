@@ -88,7 +88,4 @@ int main() {
     for (int i = 0; i < nonTermCount; i++) {
         printf("%c ", nonTerminals[i]);
     }
-    printf("\n");
-    printf("Start symbol: %c",nonTerminals[0]);
-    return 0;
 }

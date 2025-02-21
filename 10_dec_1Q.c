@@ -25,9 +25,6 @@ void processProductions(int n, char grammar[n][100]) {
         }
         right[k] = '\0';
 
-        if (strcmp(right, "ε") == 0) {
-            strcpy(right, "$");
-        }
 
         int found = 0;
         for (int x = 0; x < finalCount; x++) {

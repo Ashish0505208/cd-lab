@@ -20,11 +20,15 @@ int main(){
     else{
         isvar=false;
     }
-
     for(i=1;i<l;i++){
         if(isalpha(a[i]) || isdigit(a[i]) || a[i]=='_'){
             isvar=true;
+        }else{
+            isvar=false;
         }
+    }
+    if(isdigit(a[0])){
+        isvar=false;
     }
 
     if(a[l-3]=='[' && a[l-1]==']' && isdigit(a[l-2])){
@@ -53,7 +57,7 @@ int main(){
         isfun=false;
     }
     if(isvar==false && isarray==false && isfun==false){
-        printf("Invalid");
+        printf("Invalid identifier");
     }
     else{
 if(isvar==true){
